@@ -1,0 +1,14 @@
+.tm-nav {
+  display: flex;
+  justify-content: flex-end;
+}
+.tm-nav li a {
+  margin: 20px 5px;
+}
+.tm-nav2 {
+  display: flex;
+  justify-content: flex-end;
+}
+.tm-nav2 li a {
+  margin: 20px 5px;
+}
