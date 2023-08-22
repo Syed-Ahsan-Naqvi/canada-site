@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Top-Flughafentransfer Bestellformular</title>
+    <link rel="stylesheet" type="text/css" href="./test.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="https://www.google.com/recaptcha/api.js?render=6LeJjZEUAAAAAALFJIzLCEgtztsr4nJifHXxhGQR"></script>
+
+
+    <style>
+        .activeForm {
+            display: block;
+        }
+
+        .UnactiveForm {
+            display: none;
+        }
+    </style>
+
+    <script>
+
+    </script>
+
+</head>
+
+
+
+<body style="background:white; ">
+
+    <form id="orderForm" style="color: #513e35">
+        <div class="row">
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s6 tooltipped" data-position="bottom" data-tooltip="Abholung vom Flughafen"><a
+                            class="toggle-button" onclick="toggleForm(1)">Abholung vom Flughafen</a></li>
+                    <!-- <li class="tab col s6 tooltipped" data-position="bottom" data-tooltip="Abholung vom Flughafen"><a
+                            class="active" href="#fromAirportTab">Abholung vom Flughafen</a></li> -->
+                    <!-- <li class="tab col s6 tooltipped" data-position="bottom" data-tooltip="Hinfahrt zum Flughafen"><a
+                            href="#toAirportTab">Hinfahrt zum Flughafen</a></li> -->
+                    <li class="tab col s6 tooltipped" data-position="bottom" data-tooltip="Hinfahrt zum Flughafen">
+                        <a class="toggle-button" onclick="toggleForm(2)">Hinfahrt zum Flughafen</a>
+                    </li>
+                </ul>
+                <!-- <div class="line-animation" id="line"></div> -->
+            </div>
+            <!--Vom Flughafen Tab-->
+            <div class="">
+                <div id="fromAirportTab" class=" activeForm col s12">
+
+                    <!--Start von Flughafenstandort-->
+                    <div class="row">
+                        <div class="input-field col s12 tooltipped" data-position="bottom"
+                            data-tooltip="Abholort Flughafen Frankfurt am Main">
+                            <label for="startAirport" class="visuallyhidden">Abholort Flughafen Frankfurt</label>
+                            <i class="material-icons prefix">local_airport</i>
+                            <!-- <input placeholder="Abholort Flughafen Frankfurt" type="text" id="endAddress" class="autocomplete validate"
+                    required> -->
+                            <select id="startAirport" class="">
+                                <option value="Terminal_1">Terminal 1 - Frankfurt Flughafen am Main</option>
+                                <option value="Terminal_2">Terminal 2 - Frankfurt Flughafen am Main</option>
+                                <option value="Fernbahnhof">Fernbahnhof - The Squaire - Frankfurt Flughafen am Main
+                                </option>
+                            </select>
+
+                        </div>
+                    </div>
+
+
+                    <!--Ziel-->
+                    <div class="row">
+                        <div class="input-field col s12 tooltipped" data-position="bottom" data-tooltip="Zieladresse">
+                            <label for="endAddress" class="visuallyhidden">Zieladresse</label>
+                            <i class="material-icons prefix">map</i>
+                            <input placeholder="Zieladresse" type="text" id="endAddress" class="autocomplete validate"
+                                required>
+                        </div>
+                    </div>
+
+                    <!--Flugnummer-->
+                    <div class="row">
+                        <div class="input-field col s12 tooltipped" data-position="bottom" data-tooltip="Flugnummer">
+                            <label for="flightNr" class="visuallyhidden">Flugnummer</label>
+                            <i class="material-icons prefix">account_circle</i>
+                            <input placeholder="Flugnummer" id="flightNr" type="text" class="validate" required>
+                        </div>
+                    </div>
+
+                    <!--Abholdatum und -zeit-->
+                    <div class="row">
+                        <div class="input-field col s12 m4 tooltipped" data-position="bottom"
+                            data-tooltip="Ankunftsdatum">
+                            <label for="arrivalDate" class="visuallyhidden">Ankunftsdatum</label>
+                            <i class="material-icons prefix">date_range</i>
+                            <input placeholder="Startdatum" type="text" id="arrivalDate" class="datepicker validate"
+                                required>
+                        </div>
+
+                        <div class="input-field col s12 m4 tooltipped" data-position="bottom"
+                            data-tooltip="Ankunftszeit">
+                            <label for="arrivalTime" class="visuallyhidden">Ankunftszeit</label>
+                            <i class="material-icons prefix">access_time</i>
+                            <input placeholder="Ankunftszeit" type="text" id="arrivalTime" class="timepicker validate"
+                                required>
+                        </div>
+
+                        <div class="input-field col s12 m4 tooltipped" data-position="bottom"
+                            data-tooltip="Wunschabholzeit">
+                            <label for="pickUpTime" class="visuallyhidden">Wunschabholzeit</label>
+                            <i class="material-icons prefix">access_time</i>
+                            <input placeholder="Wunschabholzeit" type="text" id="pickUpTime" class="timepicker validate"
+                                required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Zum Flughafen Tab-->
+            <div class="">
+                <div id="toAirportTab" class=" UnactiveForm col s12">
+
+                    <!--Start-->
+                    <div class="row">
+                        <div class="input-field col s12 tooltipped" data-position="bottom" data-tooltip="Startadresse">
+                            <label for="startAddress" class="visuallyhidden">Abholort Flughafen Frankfurt</label>
+                            <i class="material-icons prefix">map</i>
+                            <input placeholder="Startadresse" type="text" id="startAddress"
+                                class="autocomplete validate">
+                        </div>
+                    </div>
+
+
+                    <!--Ziel von Flughafenstandort-->
+                    <div class="row">
+                        <div class="input-field col s12 tooltipped" data-position="bottom"
+                            data-tooltip="Zielort Frankfurt Flughafen am Main">
+                            <label for="endAirport" class="visuallyhidden">Zielort Flughafen Frankfurt</label>
+                            <i class="material-icons prefix">local_airport</i>
+                            <!-- <select id="endAirport" class="validate">
+                        <option value="Terminal_1">Terminal 1 - Frankfurt Flughafen am Main</option>
+                        <option value="Terminal_2">Terminal 2 - Frankfurt Flughafen am Main</option>
+                        <option value="Fernbahnhof">Fernbahnhof - The Squaire - Frankfurt Flughafen am Main</option>
+                    </select> -->
+                            <input placeholder="Zielort Flughafen Frankfurt" type="text" id="departureDate"
+                                class="datepicker validate">
+
+                        </div>
+                    </div>
+
+                    <!--Abholdatum und -zeit-->
+                    <div class="row">
+                        <div class="input-field col s12 m6 tooltipped" data-position="bottom" data-tooltip="Startdatum">
+                            <label for="departureDate" class="visuallyhidden">Startdatum</label>
+                            <i class="material-icons prefix">date_range</i>
+                            <input placeholder="Startdatum" type="text" id="departureDate" class="datepicker validate">
+                        </div>
+
+                        <div class="input-field col s12 m6 tooltipped" data-position="bottom" data-tooltip="Startzeit">
+                            <label for="departureTime" class="visuallyhidden">Startzeit</label>
+                            <i class="material-icons prefix">access_time</i>
+                            <input placeholder="Startzeit" type="text" id="departureTime" class="timepicker validate">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Firma und Name-->
+            <div class="row">
+                <div class="input-field col s12 l6 tooltipped" data-position="bottom" data-tooltip="Firma (optional)">
+                    <label for="company" class="visuallyhidden">Firma (optional)</label>
+                    <i class="material-icons prefix">account_circle</i>
+                    <input placeholder="Firma" id="company" type="text">
+                </div>
+                <div class="input-field col s12 l6 tooltipped" data-position="bottom" data-tooltip="Vorname Name">
+                    <label for="name" class="visuallyhidden">Vorname Name</label>
+                    <i class="material-icons prefix">account_circle</i>
+                    <input placeholder="Vorname Name" id="name" type="text" class="validate" required>
+                </div>
+            </div>
+
+            <!--Mobilnummer-->
+            <div class="row">
+                <div class="input-field col s12 tooltipped" data-position="bottom" data-tooltip="Mobilnummer">
+                    <label for="phone" class="visuallyhidden">Mobilnummer</label>
+                    <i class="material-icons prefix">phone</i>
+                    <input placeholder="Mobilnummer" id="phone" type="tel" class="validate" required>
+                </div>
+            </div>
+
+            <!--Email-->
+            <div class="row">
+                <div class="input-field col s12 tooltipped" data-position="bottom" data-tooltip="Email">
+                    <label for="email" class="visuallyhidden">Email</label>
+                    <i class="material-icons prefix">email</i>
+                    <input placeholder="Email" id="email" type="email" class="validate" required>
+                </div>
+            </div>
+
+            <!--Zusatzinfos-->
+            <div class="row">
+                <div class="input-field col s12 tooltipped" data-position="bottom"
+                    data-tooltip="Zusatzinformation (optional)">
+                    <label for="addInfo" class="visuallyhidden">Zusatzinformation (optional)</label>
+                    <i class="material-icons prefix">input</i>
+                    <textarea id="addInfo" placeholder="Zusatzinformationen" class="materialize-textarea"></textarea>
+                </div>
+            </div>
+
+            <!--Autoauswahl-->
+            <div class="row">
+                <div class="input-field col s12 tooltipped" data-position="bottom" data-tooltip="Auto auswählen">
+                    <label for="carSelection" class="visuallyhidden">Autoauswahl</label>
+                    <i class="material-icons prefix">directions_car</i>
+                    <select id="carSelection" onchange="onCarSelected()" required>
+                        <option value="PKW">PKW (4 Personen, 4 mittelgroße Koffer, 4 Handgepäck))</option>
+
+                    </select>
+                    <label>Fahrzeug auswählen</label>
+                </div>
+            </div>
+
+            <div class="col s12 l6">
+                <!--Baby-Schale (Aufpreis 5 Euro)-->
+                <div class="row">
+                    <div class="input-field col s7 m10 l9 tooltipped" data-position="bottom" data-tooltip="Babyschale">
+                        <label for="babySeat" class="visuallyhidden">Babyschale</label>
+                        <input placeholder="Babyschale" id="babySeat" readonly>
+                    </div>
+                    <div class="col s5 m2 l3 mt-1">
+                        <a class="btn-floating btn-small waves-effect waves-light tooltipped" data-position="bottom"
+                            data-tooltip="Babyschale hinzufügen" onclick="addSeat(1, 'babySeat')"><i
+                                class="material-icons">add</i></a>
+                        <a class="btn-floating btn-small waves-effect waves-light tooltipped" data-position="bottom"
+                            data-tooltip="Babyschale entfernen" onclick="addSeat(-1, 'babySeat')"><i
+                                class="material-icons">remove</i></a>
+                    </div>
+                </div>
+
+                <!--Kindersitz (Aufpreis 5 Euro)-->
+                <div class="row">
+                    <div class="input-field col s7 m10 l9 tooltipped" data-position="bottom" data-tooltip="Kindersitz">
+                        <label for="childSeat" class="visuallyhidden">Kindersitz</label>
+                        <input placeholder="Kindersitz" id="childSeat" readonly>
+                    </div>
+                    <div class="col s5 m2 l3 mt-1">
+                        <a class="btn-floating btn-small waves-effect waves-light tooltipped" data-position="bottom"
+                            data-tooltip="Kindersitz hinzufügen" onclick="addSeat(1, 'childSeat')"><i
+                                class="material-icons">add</i></a>
+                        <a class="btn-floating btn-small waves-effect waves-light tooltipped" data-position="bottom"
+                            data-tooltip="Kindersitz entfernen" onclick="addSeat(-1, 'childSeat')"><i
+                                class="material-icons">remove</i></a>
+                    </div>
+                </div>
+
+                <!--Sitzerhöhung-->
+                <div class="row">
+                    <div class="input-field col s7 m10 l9 tooltipped" data-position="bottom"
+                        data-tooltip="Sitzerhöhung">
+                        <label for="boosterSeat" class="visuallyhidden">Sitzerhöhung</label>
+                        <input placeholder="Sitzerhöhung" id="boosterSeat" readonly>
+                    </div>
+                    <div class="col s5 m2 l3 mt-1">
+                        <a class="btn-floating btn-small waves-effect waves-light tooltipped" data-position="bottom"
+                            data-tooltip="Sitzerhöhung hinzufügen" onclick="addSeat(1, 'boosterSeat')"><i
+                                class="material-icons">add</i></a>
+                        <a class="btn-floating btn-small waves-effect waves-light tooltipped" data-position="bottom"
+                            data-tooltip="Sitzerhöhung entfernen" onclick="addSeat(-1, 'boosterSeat')"><i
+                                class="material-icons">remove</i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 l6">
+                <!--Personen-->
+                <div class="row">
+                    <div class="input-field col s7 m10 l9 tooltipped" data-position="bottom" data-tooltip="Personen">
+                        <label for="personCount" class="visuallyhidden">Personen</label>
+                        <input placeholder="Personen" id="personCount" readonly required>
+                    </div>
+                    <div class="col s5 m2 l3 mt-1">
+                        <a class="btn-floating btn-small waves-effect waves-light tooltipped" data-position="bottom"
+                            data-tooltip="Personen hinzufügen" onclick="addPersons(1, 'personCount')"><i
+                                class="material-icons">add</i></a>
+                        <a class="btn-floating btn-small waves-effect waves-light tooltipped" data-position="bottom"
+                            data-tooltip="Personen entfernen" onclick="addPersons(-1, 'personCount')"><i
+                                class="material-icons">remove</i></a>
+                    </div>
+                </div>
+
+                <!--Mittelgroße Koffer-->
+                <div class="row">
+                    <div class="input-field col s7 m10 l9 tooltipped" data-position="bottom"
+                        data-tooltip="Mittelgroße Koffer">
+                        <label for="baggageCount" class="visuallyhidden">Mittelgroße Koffer</label>
+                        <input placeholder="Mittelgroße Koffer" id="baggageCount" readonly>
+                    </div>
+                    <div class="col s5 m2 l3 mt-1">
+                        <a class="btn-floating btn-small waves-effect waves-light tooltipped" data-position="bottom"
+                            data-tooltip="Mittelgroße Koffer hinzufügen" onclick="addBaggage(1, 'baggageCount')"><i
+                                class="material-icons">add</i></a>
+                        <a class="btn-floating btn-small waves-effect waves-light tooltipped" data-position="bottom"
+                            data-tooltip="Mittelgroße Koffer entfernen" onclick="addBaggage(-1, 'baggageCount')"><i
+                                class="material-icons">remove</i></a>
+                    </div>
+                </div>
+
+                <!--Handgepäck-->
+                <div class="row">
+                    <div class="input-field col s7 m10 l9 tooltipped" data-position="bottom" data-tooltip="Handgepäck">
+                        <label for="handCarryCount" class="visuallyhidden">Handgepäck</label>
+                        <input placeholder="Handgepäck" id="handCarryCount" readonly>
+                    </div>
+                    <div class="col s5 m2 l3 mt-1">
+                        <a class="btn-floating btn-small waves-effect waves-light tooltipped" data-position="bottom"
+                            data-tooltip="Handgepäck hinzufügen" onclick="addBaggage(1, 'handCarryCount')"><i
+                                class="material-icons">add</i></a>
+                        <a class="btn-floating btn-small waves-effect waves-light tooltipped" data-position="bottom"
+                            data-tooltip="Handgepäck entfernen" onclick="addBaggage(-1, 'handCarryCount')"><i
+                                class="material-icons">remove</i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="input-field col s12">
+                    <label for="cashPay">
+                        <input type="checkbox" class="filled-in" id="cashPay" required />
+                        <span>Zahlung erfolgt in Bar beim Fahrer</a></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="input-field col s12">
+                    <label for="dataPrivacy">
+                        <input type="checkbox" class="filled-in" id="dataPrivacy" required />
+                        <span>Zustimmung <a href="https://www.top-flughafentransfer.de/datenschutzerkl%C3%A4rung/"
+                                target="_blank">Datenschutzerklärung</a></span>
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="row mt-4">
+                <div class="col s12">
+                    <button class="waves-effect waves-light btn" style="width:100%" type="submit">
+                        <i class="material-icons left">send</i>Fahrt buchen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div id="orderSuccess" class="modal font-color-black">
+        <div class="modal-content">
+            <span style="font-size: 170%">Bestellanfrage erfolgreich!</span>
+            <p> Vielen Dank für Ihre Anfrage.<br>
+                Sie erhalten in den nächsten Minuten eine Email mit Ihrer Bestellanfrage. <br>
+                Diese Email ist keine Auftragsbestätigung.<br>
+                Die Auftragsbestätigung erfolgt separat innerhalb der nächsten 24 Stunden.<br>
+                Falls Sie keine Email erhalten haben, prüfen Sie bitte auch den Spamordner.<br></p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn w-100">Ok</a>
+        </div>
+    </div>
+
+    <div id="orderError" class="modal font-color-black">
+        <div class="modal-content">
+            <span style="font-size: 170%">Bestellung ist fehlgeschlagen.</span>
+            <p>Beim Bestellprozess ist ein Fehler aufgetreten. Bitte probieren Sie es nochmal. Falls der Fehler
+                weiterhin besteht,
+                bestellen Sie bitte telefonisch.</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn w-100">Ok</a>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="materialize.min.js"></script>
+    <script>
+        var babySeatCount = 0;
+        var childSeatCount = 0;
+        var boosterSeatCount = 0;
+
+        var personsCount = 0;
+        var baggageCount = 0;
+        var handCarryCount = 0;
+
+        var selectedTab = "fromAirport";
+
+        // Werte zurücksetzen - Wenn von Bus nach Auto gewechselt wird, so muss alles zurückgesetzt werden
+        function onCarSelected() {
+            addSeat(-10, 'boosterSeat');
+            addSeat(-10, 'babySeat');
+            addSeat(-10, 'childSeat');
+            addPersons(-10, 'personCount');
+            addBaggage(-10, 'handCarryCount');
+            addBaggage(-10, 'baggageCount');
+        }
+
+        function addSeat(addCount, elementName) {
+            var carType = document.querySelector('#carSelection').value;
+            var seatCountMax = 3;
+            var errorText = "";
+            if (carType === 'PKW') {
+                seatCountMax = 3;
+                errorText = 'Sie können in einem normalen PKW nicht mehr als 3 Babyschalen/Kindersitze/Sitzerhöhungen haben.' +
+                    '<br>Wenn Sie mehr benötigen, ändern Sie bitte die Fahrzeugart zu Kleinbus.'
+            }
+            else if (carType === 'Kleinbus') {
+                seatCountMax = 6;
+                errorText = 'Sie können in einem Kleinbus nicht mehr als 6 Babyschalen/Kindersitze/Sitzerhöhungen haben.';
+            }
+
+            if (babySeatCount + childSeatCount + boosterSeatCount + addCount > seatCountMax)
+                M.toast({ html: errorText }).timeRemaining = 4000;
+            else {
+                var seatTypeText = '';
+
+                if (elementName === 'childSeat') {
+                    childSeatCount += addCount;
+                    if (childSeatCount <= 0) {
+                        childSeatCount = 0;
+                        document.querySelector('#' + elementName).value = '';
+                        return;
+                    }
+
+                    seatName = 'Kindersitz';
+                    if (childSeatCount > 1)
+                        seatName = 'Kindersitze';
+
+                    seatTypeText = childSeatCount + ' ' + seatName + ' (' + childSeatCount * 5 + ' Euro)';
+                }
+                else if (elementName === 'boosterSeat') {
+                    boosterSeatCount += addCount;
+                    if (boosterSeatCount <= 0) {
+                        boosterSeatCount = 0;
+                        document.querySelector('#' + elementName).value = '';
+                        return;
+                    }
+
+                    seatName = 'Sitzerhöhung';
+                    if (boosterSeatCount > 1)
+                        seatName = 'Sitzerhöhungen';
+
+                    seatTypeText = boosterSeatCount + ' ' + seatName;
+                }
+                else if (elementName === 'babySeat') {
+                    babySeatCount += addCount;
+                    if (babySeatCount <= 0) {
+                        babySeatCount = 0;
+                        document.querySelector('#' + elementName).value = '';
+                        return;
+                    }
+                    seatName = 'Babyschale';
+                    if (babySeatCount > 1)
+                        seatName = 'Babyschalen';
+
+                    seatTypeText = babySeatCount + ' ' + seatName + ' (' + babySeatCount * 5 + ' Euro)';
+                }
+                document.querySelector('#' + elementName).value = seatTypeText;
+            }
+        }
+
+        function addPersons(addCount, elementName) {
+            var carType = document.querySelector('#carSelection').value;
+            var personCountMax = 4;
+            var errorText = '';
+
+            if (carType === 'PKW') {
+                personCountMax = 4;
+                errorText = 'In einem PKW können nicht mehr als ' + personCountMax + ' Personen befördert werden. ' +
+                    'Wenn Sie mehr Personen sind, dann ändern Sie bitte die Fahrzeugart zu Kleinbus.';
+            }
+            else if (carType === 'Kleinbus') {
+                personCountMax = 8;
+                errorText = 'In einem Kleinbus können nicht mehr als ' + personCountMax + ' Personen befördert werden.';
+            }
+
+            if (personsCount + addCount > personCountMax) {
+                M.toast({ html: errorText }).timeRemaining = 4000;
+                return;
+            }
+
+            personsCount += addCount;
+            if (personsCount <= 0) {
+                personsCount = 0;
+                document.querySelector('#' + elementName).value = '';
+                return;
+            }
+
+            var personName = 'Person';
+            if (personsCount > 1)
+                personName = 'Personen';
+
+            personText = personsCount + ' ' + personName;
+            document.querySelector('#' + elementName).value = personText;
+        }
+
+        function addBaggage(addCount, elementName) {
+            var carType = document.querySelector('#carSelection').value;
+            var baggageCountMax;
+            var handCarryCountMax;
+            var errorText = '';
+
+            if (carType === 'PKW') {
+                baggageCountMax = 4;
+                handCarryCountMax = 4;
+                if (elementName === 'baggageCount') {
+                    errorText = 'In einem PKW können nicht mehr als ' + baggageCountMax + ' mittelgroße Koffer befördert werden. ' +
+                        'Wenn Sie mehr Stauraum brauchen, dann ändern Sie bitte die Fahrzeugart zu Kleinbus.';
+                }
+                else if (elementName === 'handCarryCount') {
+                    errorText = 'In einem PKW können nicht mehr als ' + handCarryCountMax + ' Handgepäckstücke befördert werden. ' +
+                        'Wenn Sie mehr Stauraum brauchen, dann ändern Sie bitte die Fahrzeugart zu Kleinbus.';
+                }
+            }
+            else if (carType === 'Kleinbus') {
+                baggageCountMax = 8;
+                handCarryCountMax = 4;
+
+                if (elementName === 'baggageCount') {
+                    errorText = 'In einem Kleinbus können nicht mehr als ' + baggageCountMax + ' mittelgroße Koffer befördert werden. ';
+                }
+                else if (elementName === 'handCarryCount') {
+                    errorText = 'In einem Kleinbus können nicht mehr als ' + handCarryCountMax + ' Handgepäckstücke befördert werden. ';
+                }
+            }
+
+            if (elementName === 'baggageCount') {
+                if (baggageCount + addCount > baggageCountMax) {
+                    M.toast({ html: errorText }).timeRemaining = 4000;
+                    return;
+                }
+            }
+            else if (elementName === 'handCarryCount') {
+                if (handCarryCount + addCount > handCarryCountMax) {
+                    M.toast({ html: errorText }).timeRemaining = 4000;
+                    return;
+                }
+            }
+
+            if (elementName === 'baggageCount') {
+                baggageCount += addCount;
+                if (baggageCount <= 0) {
+                    baggageCount = 0;
+                    document.querySelector('#' + elementName).value = '';
+                    return;
+                }
+
+                var baggageName = 'Koffer';
+                if (baggageCount > 1)
+                    baggageName = 'Koffer';
+
+                baggageText = baggageCount + ' ' + baggageName;
+                document.querySelector('#' + elementName).value = baggageText;
+            }
+            else if (elementName === 'handCarryCount') {
+                handCarryCount += addCount;
+                if (handCarryCount <= 0) {
+                    handCarryCount = 0;
+                    document.querySelector('#' + elementName).value = '';
+                    return;
+                }
+
+                var handCarryCountName = 'Handgepäckstück';
+                if (handCarryCount > 1)
+                    handCarryCountName = 'Handgepäckstücke';
+
+                handCarryText = handCarryCount + ' ' + handCarryCountName;
+                document.querySelector('#' + elementName).value = handCarryText;
+            }
+
+        }
+
+        document.addEventListener('DOMContentLoaded', function (callbackfn, thisArg) {
+            var modals = document.querySelectorAll('.modal');
+            M.Modal.init(modals);
+
+            var tabs = document.querySelectorAll('.tabs');
+            M.Tabs.init(tabs,
+                {
+                    onShow: function (htmlElement) {
+                        if (htmlElement.id === "fromAirportTab") {
+                            document.querySelector('#startAddress').required = false;
+                            document.querySelector('#endAirport').required = false;
+                            document.querySelector('#departureDate').required = false;
+                            document.querySelector('#departureTime').required = false;
+
+                            document.querySelector('#startAirport').required = true;
+                            document.querySelector('#endAddress').required = true;
+                            document.querySelector('#flightNr').required = true;
+                            document.querySelector('#arrivalDate').required = true;
+                            document.querySelector('#arrivalTime').required = true;
+                            document.querySelector('#pickUpTime').required = true;
+
+                            document.querySelector('#phone').setAttribute("placeholder", "Mobilnummer");
+                            selectedTab = "fromAirport";
+
+                        }
+                        else if (htmlElement.id === "toAirportTab") {
+                            document.querySelector('#startAddress').required = true;
+                            document.querySelector('#endAirport').required = true;
+                            document.querySelector('#departureDate').required = true;
+                            document.querySelector('#departureTime').required = true;
+
+                            document.querySelector('#startAirport').required = false;
+                            document.querySelector('#endAddress').required = false;
+                            document.querySelector('#flightNr').required = false;
+                            document.querySelector('#arrivalDate').required = false;
+                            document.querySelector('#arrivalTime').required = false;
+                            document.querySelector('#pickUpTime').required = false;
+
+                            document.querySelector('#phone').setAttribute("placeholder", "Telefonnummer");
+                            selectedTab = 'toAirport';
+                        }
+                    }
+                });
+
+            var tooltips = document.querySelectorAll('.tooltipped');
+            M.Tooltip.init(tooltips);
+
+            var dropDowns = document.querySelectorAll('.dropdown-trigger');
+            M.Dropdown.init(dropDowns, {
+                onOpenEnd: function () {
+                    document.addEventListener("click", closeAllOpenedDropDowns);
+                },
+
+                onCloseEnd: function () {
+                    document.removeEventListener("click", closeAllOpenedDropDowns);
+                },
+                coverTrigger: false
+            }
+            );
+
+            var selectors = document.querySelectorAll('select');
+            M.FormSelect.init(selectors);
+            var selectorRequired = document.querySelectorAll('select[required]');
+            selectorRequired.forEach((item) => {
+                item.setAttribute('style', 'display: "inline";' +
+                    'height: 0;' +
+                    'padding: 0;' +
+                    'width: 0;')
+            });
+
+
+            var datePickers = document.querySelectorAll('.datepicker');
+            M.Datepicker.init(datePickers, {
+                firstDay: 1,
+                autoClose: true,
+                format: 'dd.mm.yyyy',
+                i18n: {
+                    cancel: 'Abbrechen',
+                    weekdaysShort: [
+                        'So',
+                        'Mo',
+                        'Mo',
+                        'Di',
+                        'Mi',
+                        'Do',
+                        'Fr',
+                        'Sa',
+                    ],
+                    weekdaysAbbrev: ['S', 'M', 'D', 'M', 'D', 'F', 'S'],
+                    monthsShort: [
+                        'Jan',
+                        'Feb',
+                        'Mär',
+                        'Apr',
+                        'Mai',
+                        'Jun',
+                        'Jul',
+                        'Aug',
+                        'Sep',
+                        'Okt',
+                        'Nov',
+                        'Dez'
+                    ],
+                    months: [
+                        'Januar',
+                        'Februar',
+                        'März',
+                        'April',
+                        'Mai',
+                        'Juni',
+                        'Juli',
+                        'August',
+                        'September',
+                        'Oktober',
+                        'November',
+                        'Dezember'
+                    ]
+                }
+            });
+
+            var timePickers = document.querySelectorAll('.timepicker');
+            M.Timepicker.init(timePickers, {
+                twelveHour: false,
+                i18n: {
+                    cancel: 'Abbrechen',
+                    done: 'Ok',
+                    clear: 'Löschen'
+                },
+                onCloseEnd: function () {
+                    if (this.el.id === 'arrivalTime') {
+                        var pickupTimeElement = document.getElementById('pickUpTime');
+                        var split = this.time.split(':');
+                        var newMinutes = (parseInt(split[1]) + 30) % 60;
+                        if (newMinutes < 10)
+                            newMinutes = '0' + newMinutes;
+                        var newHours = ((parseInt(split[1]) + 30) / 60) >= 1 ? parseInt(split[0]) + 1 : parseInt(split[0]);
+                        if (newHours < 10)
+                            newHours = '0' + newHours;
+
+                        pickupTimeElement.value = newHours + ':' + newMinutes;
+                    }
+                }
+            });
+
+            var autocomplete = document.querySelectorAll('.autocomplete');
+            var autocompleteInstances = M.Autocomplete.init(autocomplete);
+
+
+            autocompleteInstances.forEach(function (element) {
+                element.el.addEventListener('input', function (event) {
+
+                    // Create a request variable and assign a new XMLHttpRequest object to it.
+                    var request = new XMLHttpRequest();
+
+                    // Open a new connection, using the GET request on the URL endpoint
+                    var text = event.currentTarget.value;
+                    request.open('GET', 'API/API_AddressAutoCompleter.php?q=' + text, true);
+
+                    request.onload = function () {
+                        // Begin accessing JSON data here
+                        var data = JSON.parse(this.response);
+
+                        element.updateData(data);
+                        element.open();
+                    };
+
+                    // Send request
+                    request.send();
+                });
+            });
+
+            if (document.getElementById('orderForm')) {
+                var orderTaxiForm = document.querySelector('#orderForm');
+                orderTaxiForm.addEventListener("submit", function (event) {
+                    // Stop the browser from submitting the form.
+                    event.preventDefault();
+
+                    grecaptcha.ready(function () {
+                        grecaptcha.execute('6LeJjZEUAAAAAALFJIzLCEgtztsr4nJifHXxhGQR', { action: 'homepage' }).then(function (token) {
+                            // Bind the FormData object and the form element
+                            var FD = new FormData();
+                            FD.append("travelType", selectedTab);
+                            if (selectedTab === 'fromAirport') {
+                                FD.append("startAirport", document.querySelector('#startAirport').value);
+                                FD.append("endAddress", document.querySelector('#endAddress').value);
+                                FD.append("flightNr", document.querySelector('#flightNr').value);
+                                FD.append("arrivalDate", document.querySelector('#arrivalDate').value);
+                                FD.append("arrivalTime", document.querySelector('#arrivalTime').value);
+                                FD.append("pickUpTime", document.querySelector('#pickUpTime').value);
+                            }
+                            else if (selectedTab === 'toAirport') {
+                                FD.append("startAddress", document.querySelector('#startAddress').value);
+                                FD.append("endAirport", document.querySelector('#endAirport').value);
+                                FD.append("departureDate", document.querySelector('#departureDate').value);
+                                FD.append("departureTime", document.querySelector('#departureTime').value);
+                            }
+
+                            FD.append("company", document.querySelector('#company').value);
+                            FD.append("name", document.querySelector('#name').value);
+                            FD.append("phone", document.querySelector('#phone').value);
+                            FD.append("email", document.querySelector('#email').value);
+                            FD.append("addInfo", document.querySelector('#addInfo').value);
+                            FD.append("carSelection", document.querySelector('#carSelection').value);
+                            FD.append("babySeat", document.querySelector('#babySeat').value);
+                            FD.append("childSeat", document.querySelector('#childSeat').value);
+                            FD.append("boosterSeat", document.querySelector('#boosterSeat').value);
+                            FD.append("personCount", document.querySelector('#personCount').value);
+                            FD.append("baggageCount", document.querySelector('#baggageCount').value);
+                            FD.append("handCarryCount", document.querySelector('#handCarryCount').value);
+
+
+                            var xhttp = new XMLHttpRequest();
+                            xhttp.onreadystatechange = function () {
+                                if (this.readyState !== 4) // readyState = DONE
+                                    return;
+
+                                if (this.status === 200) {
+                                    if (xhttp.responseText === '1') // Success
+                                    {
+                                        var orderSuccess = document.querySelector('#orderSuccess');
+                                        var instanceSuccess = M.Modal.getInstance(orderSuccess);
+                                        instanceSuccess.open();
+                                    }
+                                    else { // Error
+                                        showError();
+                                    }
+
+                                } else {
+                                    showError();
+                                }
+                            };
+                            xhttp.open("POST", "API/sendEmail.php");
+                            // Add the required HTTP header for form data POST requests
+                            // xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                            xhttp.send(FD);
+                        })
+                    });
+                });
+
+
+            }
+
+            function showError() {
+                var orderError = document.querySelector('#orderError');
+                var instanceError = M.Modal.getInstance(orderError);
+                instanceError.open();
+            }
+        });
+
+    </script>
+    <script>
+
+        function toggleForm(formNumber) {
+
+            const form1 = document.getElementById("fromAirportTab");
+            const form2 = document.getElementById("toAirportTab");
+
+            if (formNumber === 1) {
+                form1.classList.remove("UnactiveForm");
+                form1.classList.add("activeForm");
+                form2.classList.remove("activeForm");
+                form2.classList.add("UnactiveForm");
+            } else if (formNumber === 2) {
+                form1.classList.remove("activeForm");
+                form1.classList.add("UnactiveForm");
+                form2.classList.add("activeForm");
+                form2.classList.remove("UnactiveForm");
+            }
+
+
+        }
+    </script>
+
+</body>
+
+</html>
